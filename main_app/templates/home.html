@@ -1,0 +1,24 @@
+{% load static %}
+
+<h1>Wish List Items</h1>
+<table>
+    {% if items %}
+    {% for item in items %}
+    <tr>
+        <th>
+            <h3>Description</h3>
+        </th>
+        <td>
+            <p>{{ item.text }}</p>
+        </td>
+        <td>
+            <a href="{% url 'item_delete' item.id %}">X</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h5>No List Items</h5>
+    {% endif %}
+</table>
+<hr>
+<a href="{% url 'item_create' %}">Add a Wish Item</a>
